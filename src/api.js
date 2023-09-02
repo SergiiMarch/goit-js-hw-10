@@ -2,7 +2,7 @@ const API_KEY =
   'live_j6aIGc6Pw8K1IcWmkJHoomXmQdhZnA9TPF1V1YmtsXFgs6EXQSzIvXo1muSnJgFc';
 
 function fetchBreeds() {
-  const url = `https://api.thecatapi.com/v1/images/search?api_key={API_KEY}&limit=10`;
+  const url = `https://api.thecatapi.com/v1/breeds`;
   return fetch(url)
     .then(res => res.json())
     .then(data => {

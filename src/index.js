@@ -1,5 +1,5 @@
-// import { fetchBreeds } from './api.js';
-// import { API_KEY } from './api.js';
+import { fetchBreeds } from './api.js';
+import { API_KEY } from './api.js';
 
 // const selectEl = document.querySelector('.breed-select');
 // const divEl = document.querySelector('.cat-info');
@@ -72,36 +72,37 @@
 
 // // // Викликайте функцію завантаження порід при завантаженні сторінки
 // // loadBreeds();
-const API_KEY =
-  'live_j6aIGc6Pw8K1IcWmkJHoomXmQdhZnA9TPF1V1YmtsXFgs6EXQSzIvXo1muSnJgFc';
+// const API_KEY =
+//   'live_j6aIGc6Pw8K1IcWmkJHoomXmQdhZnA9TPF1V1YmtsXFgs6EXQSzIvXo1muSnJgFc';
 
-function fetchBreeds() {
-  const url = `https://api.thecatapi.com/v1/breeds`;
+// function fetchBreeds() {
+//   const url = `https://api.thecatapi.com/v1/breeds`;
 
-  // Додаємо ключ API до HTTP-запиту в заголовок
-  const headers = {
-    'x-api-key': API_KEY,
-  };
+//   // Додаємо ключ API до HTTP-запиту в заголовок
+//   const headers = {
+//     'x-api-key': API_KEY,
+//   };
 
-  return fetch(url, { headers })
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return res.json();
-    })
-    .then(data => {
-      return data; // Повертаємо масив порід для подальшої обробки
-    })
-    .catch(error => {
-      console.error('Помилка при завантаженні порід:', error);
-      throw error;
-    });
-}
+//   return fetch(url, { headers })
+//     .then(res => {
+//       if (!res.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return res.json();
+//     })
+//     .then(data => {
+//       return data; // Повертаємо масив порід для подальшої обробки
+//     })
+//     .catch(error => {
+//       console.error('Помилка при завантаженні порід:', error);
+//       throw error;
+//     });
+// }
 
 const selectEl = document.querySelector('.breed-select');
 const divEl = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
+const errorEl = document.querySelector('.error');
 
 selectEl.addEventListener('change', setOutput);
 
@@ -113,6 +114,7 @@ function setOutput(e) {
   // Показуємо завантажувач перед запросом
   loaderEl.classList.remove('hide');
   loaderEl.classList.add('show');
+  divEl.classList.add('hide');
 
   // Виконуємо HTTP-запит для завантаження інформації про кота
   fetch(
@@ -130,11 +132,15 @@ function setOutput(e) {
     })
     .catch(error => {
       console.error('Помилка при загрузці інформації про кота:', error);
+      divEl.innerHTML =
+        'Помилка: не вдалося завантажити інформацію про кота. Спробуйте оновити сторінку.';
     })
     .finally(() => {
       // Скриваємо завантажувач після завершення запиту
       loaderEl.classList.remove('show');
       loaderEl.classList.add('hide');
+
+      divEl.classList.remove('hide');
     });
 }
 

@@ -6,3 +6,50 @@
 .show {
   display: block;
 }
+
+/* Стилі для loader */
+.loader {
+  /* Початково приховуємо loader */
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.loader.show {
+  display: block; /* Показуємо loader при необхідності */
+}
+
+/* Стилі для select */
+.breed-select {
+  font-size: 16px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+/* Стилі для div.cat-info */
+.cat-info {
+  /* Початково приховуємо div.cat-info */
+  margin-top: 20px;
+}
+
+.cat-info h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.cat-info p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+/* Стилі для помилки */
+.error {
+  display: none;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}

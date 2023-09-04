@@ -1,0 +1,8 @@
+.hide {
+  display: none;
+}
+
+/* Відобразити p.loader */
+.show {
+  display: block;
+}

@@ -14,7 +14,7 @@ function setOutput(e) {
   console.log(selectedBreedId);
 
   // Показуємо завантажувач перед запитом
-  loaderEl.classList.remove('hide');
+
   loaderEl.classList.add('show');
   divEl.classList.add('hide');
 

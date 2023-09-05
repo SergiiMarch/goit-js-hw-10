@@ -57,7 +57,7 @@ function displayCatInfo(catData) {
 function loadBreeds() {
   fetchBreeds()
     .then(data => {
-      // selectEl.innerHTML = '<option value="">Оберіть породу</option>';
+      selectEl.innerHTML = '<option value="">Оберіть породу</option>';
 
       // опції для кожної породи кота
       data.forEach(breed => {

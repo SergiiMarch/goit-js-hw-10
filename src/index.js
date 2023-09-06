@@ -1,10 +1,15 @@
 import { fetchBreeds } from './api.js';
 import { API_KEY } from './api.js';
+import SlimSelect from 'slim-select';
 
 const selectEl = document.querySelector('.breed-select');
 const divEl = document.querySelector('.cat-info');
 const loaderEl = document.querySelector('.loader');
 const errorEl = document.querySelector('.error');
+
+// const slim = new SlimSelect({
+//   select: '#breed-select',
+// });
 
 selectEl.addEventListener('change', setOutput);
 
@@ -59,7 +64,7 @@ function loadBreeds() {
     .then(data => {
       selectEl.innerHTML = '<option value="">Оберіть породу</option>';
 
-      // опції для кожної породи кота
+      // Опції для кожної породи кота
       data.forEach(breed => {
         const option = document.createElement('option');
         option.value = breed.id;
@@ -72,5 +77,16 @@ function loadBreeds() {
     });
 }
 
-// Викликайте функцію завантаження порід при натисканні на <select>
-selectEl.addEventListener('click', loadBreeds);
+// Викликайте функцію завантаження порід при завантаженні сторінки
+loadBreeds();
+// function loadBreeds() {
+//   fetchBreeds()
+//     .then(data => {
+//       // Оновлюємо дані Slim Select з новими опціями
+//       slim.setData(data.map(breed => ({ value: breed.id, text: breed.name })));
+//     })
+//     .catch(error => {
+//       console.error('Помилка при завантаженні порід:', error);
+//     });
+// }
+// loadBreeds();

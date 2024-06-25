@@ -28,6 +28,8 @@ const options = {
     const selectedDate = selectedDates[0];
     if (selectedDate <= new Date()) {
       iziToast.error({
+        progressBarColor: 'rgba(255, 0, 0)',
+        progressBar: true,
         title: 'attention',
         message: 'Please choose a date in the future',
       });

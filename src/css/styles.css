@@ -20,7 +20,7 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
-body {
+/* body {
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -29,42 +29,83 @@ body {
   height: 100vh;
   background-color: #f0f0f0;
   margin: 0;
-}
+} */
+/* Загальні стилі */
+/* Загальні стилі */
+/* Загальні стилі для інпуту */
 #datetime-picker {
-  font-size: 1.2em;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 5px;
+  width: 272px;
+  height: 40px;
+  font: 400 16px / 150% var(--font-family);
+  letter-spacing: 0.04em;
+  color: #2e2f42; /* Колір тексту за замовчуванням */
+  background-color: #f5f5f5;
   border: 1px solid #ccc;
+  outline: none;
 }
+
+#datetime-picker:hover {
+  background-color: #e6e6e6;
+  border: 1px solid #fff;
+}
+
+#datetime-picker:focus {
+  outline: none;
+}
+
+/* Стиль для інпуту з невалідною датою */
+#datetime-picker.invalid-date {
+  color: #989898; /* Змінюємо колір тексту на сірий */
+  background-color: #f5f5f5;
+}
+
 button[data-start] {
-  padding: 10px 20px;
-  font-size: 1.2em;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 75px;
+  height: 45px;
+  font: 500 16px / 150% var(--font-family);
+  letter-spacing: 0.04em;
+  color: #fff;
+  background: #4e75ff;
   cursor: pointer;
+  border: 1px solid #4e75ff;
+  transition: background-color 0.3s, color 0.3s;
 }
+
+button[data-start]:hover {
+  background: #6c8cff;
+  border: 1px solid #6c8cff;
+}
+
 button[data-start]:disabled {
-  background-color: #ccc;
+  background: #cfcfcf;
+  color: #989898;
   cursor: not-allowed;
+  border: 1px solid #cfcfcf;
 }
+
 .timer {
   display: flex;
-  gap: 20px;
-  margin-top: 20px;
+  gap: 24px;
+  margin-top: 32px;
+  width: 346px;
 }
 .field {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 82px;
+  height: 72px;
 }
-.value {
-  font-size: 2.5em;
-  font-weight: bold;
-}
+
 .label {
-  font-size: 1em;
-  color: #555;
+  font: 400 16px / 150% var(--font-family);
+  color: #2e2f42;
+}
+
+.value {
+  font: 400 40px / 120% var(--font-family);
+  letter-spacing: 0.04em;
+  color: #2e2f42;
 }

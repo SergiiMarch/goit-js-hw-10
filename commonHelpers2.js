@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-3cfb730f.js";const e={formEl:document.querySelector(".form"),fieldsetEl:document.querySelector("fieldset")};e.formEl.addEventListener("submit",r);function r(t){t.preventDefault();const o=e.formEl.elements.delay.value,s=e.formEl.elements.state.value;greatePromise(o,s).then(l=>{console.log("succeos")}).catch(l=>{console.log("error")})}
+//# sourceMappingURL=commonHelpers2.js.map

@@ -10,8 +10,6 @@ function onSubmit(e) {
 
   const delay = Number(refs.formEl.elements.delay.value);
   const state = refs.formEl.elements.state.value;
-  console.log('✅ Fulfilled promise in:', delay);
-  console.log('State:', state);
 
   createPromise(delay, state)
     .then(message => {

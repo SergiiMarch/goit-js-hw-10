@@ -163,8 +163,9 @@ button {
   flex-direction: row;
   gap: 10px;
   background-color: #4e75ff;
+  border: none;
 }
 
 button:hover {
-  background-color: #0056b3; /* Ефект при наведенні на кнопку */
+  background-color: #6c8cff; /* Ефект при наведенні на кнопку */
 }

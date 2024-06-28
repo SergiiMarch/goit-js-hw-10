@@ -1,3 +1,6 @@
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+
 const refs = {
   formEl: document.querySelector('.form'),
   fieldsetEl: document.querySelector('fieldset'),
@@ -13,17 +16,28 @@ function onSubmit(e) {
 
   createPromise(delay, state)
     .then(message => {
-      console.log('✅ Fulfilled promise in:', message);
+      iziToast.show({
+        progressBarColor: 'rgba(0, 255, 0)',
+        progressBar: true,
+        title: 'show',
+        message: '✅ Fulfilled promise in:',
+      });
+      // console.log('✅ Fulfilled promise in:', message);
     })
     .catch(message => {
-      console.log('❌ Rejected promise in:', message);
+      iziToast.error({
+        progressBarColor: 'rgba(255, 0, 0)',
+        progressBar: true,
+        title: 'error',
+        message: '❌ Rejected promise in:',
+      });
     });
 }
 
 function createPromise(delay, state) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
-      if (state === 'Fulfilled') {
+      if (state === 'fulfilled') {
         resolve(`${delay}ms`);
       } else {
         reject(`${delay}ms`);
@@ -31,11 +45,3 @@ function createPromise(delay, state) {
     }, delay);
   });
 }
-
-// createPromise(1000, 'Fulfilled')
-//   .then(message => console.log('✅ Success:', message))
-//   .catch(message => console.log('❌ Error:', message));
-
-// createPromise(1000, 'Rejected')
-//   .then(message => console.log('✅ Success:', message))
-//   .catch(message => console.log('❌ Error:', message));
